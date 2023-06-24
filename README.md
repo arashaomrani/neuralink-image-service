@@ -19,7 +19,15 @@ The --host argument of the server script should be set to 0.0.0.0 to accept conn
 
 ## Run Client:
 To run client, run the following command: `./client --input path_to_input.png --output path_to_output.png --rotate NINETY_DEG --mean --host server_public_ip_or_hostname --port 50051`
-Client can accept 3 inputs (`NINETY_DEG`, `ONE_EIGHTY_DEG`, `TWO_SEVENTY_DEG`) for 90, 180, 270 degree rotations.
+Client can accept 3 inputs (`NINETY_DEG`, `ONE_EIGHTY_DEG`, `TWO_SEVENTY_DEG`) for 90, 180, 270 degree rotations. 
+
+The format of input and ouput images can be `png` and `jpeg`, and input images can be rgb or grayscale e.g. `tree_rgb.jepg` and `tree_grayscale.png`.
+
+#### If there is an invalid input image content e.g. `invalid_image.jpeg`: 
+
+On the server side it prints `Invalid image data` and still keep running, waiting for the next request.
+
+On the client side it throws exception error and prints `Invalid image data` in the details of the error. 
 
 ## Discussion:
 The limitations of this solution include:
